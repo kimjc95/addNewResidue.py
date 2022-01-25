@@ -11,7 +11,8 @@ When you supply the .mol2 file of your amino acid with N-acetyl cap and C-methyl
 1. remove ACE and NME caps
 2. compensate charge difference by spreading it over all sidechain atoms
 3. relabel hydrogen atoms according to the connectivity
-4. add new parameters to the aminoacids.rtp, aminoacids.hdb, atomtypes.atp, newffbonded.itp, newffnonbonded.itp file
+4. add new parameters to the aminoacids.rtp, aminoacids.hdb, and atomtypes.atp files
+5. create newffbonded.itp, newffnonbonded.itp files if there is any new parameter to add to ffbonded.itp and ffnonbonded.itp files
 
 *WARNING: This code only works for non-terminal residues! Also, it simply add/subtracts charge change from removing ACE/NME caps.
         
@@ -40,6 +41,7 @@ Change (i-1)th residue into acetyl group.
 Change (i+1)th residue into N-methylamine group.
 
 You may now add hydrogens according to the pH.
+
 (Make sure to check your hydrogens to have appropriate residue index! ((i-1) for ACE hydrogens, i for your residue, (i+1) for NME hydrogens))
 
 Then save as the .mol2 file.
@@ -74,9 +76,9 @@ Place the resulting folder in your working directory.
 
 checkout (https://www.gromacs.org/Downloads/User_contributions/Force_fields)
 
-Please note that there is an error in ffbonded.itp of amber14sb_OL15.ff_corrected-Na-cation-params.tar.gz file made by mabraham, 08:29, 30 Aug 2019.
+Please note that there is an error in amber14sb_OL15.ff_corrected-Na-cation-params.tar.gz file made by mabraham, 08:29, 30 Aug 2019.
 
-you should manually change line in improper [ dihedraltypes ] 
+you should manually change line in ffbonded.itp file's improper [ dihedraltypes ] section 
 
         CT  CV  CC  NA       4      180.00     4.60240     2
         
@@ -98,9 +100,9 @@ for CHARMM forcefield:
 
 For the detailed info about the input format, use -h or --help flag.
 
-If all is well, the aminoacids.rtp, aminoacids.hdb, atomtypes.atp files will not require further changes.
+If all is well, the aminoacids.rtp, aminoacids.hdb and atomtypes.atp files will not require further changes.
 
-Check the created newffbonded.itp and newffnonbonded.itp files.
+Check the newly created newffbonded.itp and newffnonbonded.itp files.
 
 In case where there is no new bond / nonbonded interaction parameters to add, the newffbonded.itp and newffnonbonded.itp files will not be created.
 
