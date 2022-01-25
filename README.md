@@ -40,7 +40,7 @@ Change (i-1)th residue into acetyl group.
 
 Change (i+1)th residue into N-methylamine group.
 
-You may now add hydrogens according to the pH.
+You may now add hydrogens according to the pH. You don't have to name them, since addNewResidue.py will rename them afterwards.
 
 (Make sure to check your hydrogens to have appropriate residue index! ((i-1) for ACE hydrogens, i for your residue, (i+1) for NME hydrogens))
 
