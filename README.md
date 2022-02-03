@@ -1,15 +1,15 @@
 addNewResidue.py
 ================
 
-https://github.com/kimjc95/addNewResidue.py
+<https://github.com/kimjc95/addNewResidue.py>
 
 This code adds custom-made amino acids to the GROMACS forcefield directory. 
 
 Currently supporting AMBER and CHARMM forcefields.
 
-This code was written by Joo-Chan Kim at Molecular Synthetic Biology Laboratory in Korea Advanced Institute of Science and Technology (http://msbl.kaist.ac.kr).
+This code was written by Joo-Chan Kim at Molecular Synthetic Biology Laboratory in Korea Advanced Institute of Science and Technology (<http://msbl.kaist.ac.kr>).
 
-If you have any questions or improvements to make, please contact me through kimjoochan@kaist.ac.kr .
+If you have any questions or improvements to make, please contact me through <kimjoochan@kaist.ac.kr> .
 
 When you supply the .mol2 file of your amino acid with N-acetyl cap and C-methylamine cap, this code will
 1. remove ACE and NME caps
@@ -23,11 +23,13 @@ When you supply the .mol2 file of your amino acid with N-acetyl cap and C-methyl
 >So the resulting atomic partial charges may not be accurate!    
 >For the accurate parameterization, use other methods such as quantum mechanical ones.
 
-Guide : 
+Guide :
+
+*****
 
 ### 1. Modify / Create your residue in the protein .pdb file using structure viewers such as PyMOL.
 
-Name the heavy atoms in your custom-made residue.
+Name the heavy atoms (non-hydrogens) in your custom-made residue.
 
 The atom names should be unique in the residue and must be less than 4 letters long!
 
@@ -57,7 +59,7 @@ Then save as the .mol2 file.
 
 You may use external programs such as Chem3D or Avogadro.
 
-or you may use the optimize plugin from PyMOL (https://pymolwiki.org/index.php/Optimize)
+or you may use the [optimize plugin](https://pymolwiki.org/index.php/Optimize) from PyMOL 
 
 Save the energy minimized structure as .mol2 file.
 
@@ -67,7 +69,7 @@ Save the energy minimized structure as .mol2 file.
 
 ##### For AMBER forcefield, use acpype to generate GAFF2 parameters for your residue.
 
-checkout (https://github.com/alanwilter/acpype)
+checkout [acpype website](https://github.com/alanwilter/acpype)
 
 To run the acpype, you have to unify residue names (change ACE and NME's name into your residue's) in your input .mol2 file.
 
@@ -75,7 +77,7 @@ But do not unify the residue indices! addNewResidue.py differentiates the ACE & 
 
 ##### For CHARMM forcefield, use CHARMM-GUI to generate CGenFF parameters for your residue.
 
-checkout (https://charmm-gui.org/)
+checkout [CHARMM-GUI website](https://charmm-gui.org/)
 
 Sometimes CHARMM-GUI may not properly print out the improper dihedral infos for phenyl rings in your residue, so be aware of that!
 
@@ -85,7 +87,7 @@ Place the resulting folder in your working directory.
 
 ### 5. In the same directory, download the latest version of AMBER/CHARMM forcefield files from GROMACS website.
 
-checkout (https://www.gromacs.org/Downloads/User_contributions/Force_fields)
+checkout [GROMACS forcefields](https://www.gromacs.org/Downloads/User_contributions/Force_fields)
 
 Please note that there is an error in amber14sb_OL15.ff_corrected-Na-cation-params.tar.gz file made by mabraham, 08:29, 30 Aug 2019.
 
