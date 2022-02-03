@@ -14,7 +14,7 @@ When you supply the .mol2 file of your amino acid with N-acetyl cap and C-methyl
 4. add new parameters to the aminoacids.rtp, aminoacids.hdb, and atomtypes.atp files
 5. create newffbonded.itp, newffnonbonded.itp files if there is any new parameter to add to ffbonded.itp and ffnonbonded.itp files
 
-*WARNING: This code only works for non-terminal residues! Also, it simply add/subtracts charge change from removing ACE/NME caps.
+*WARNING: This code only works for non-terminal residues! Also, it simply add/subtracts charge change resulting from removing ACE/NME caps.
         
  So the resulting atomic partial charges may not be accurate!
         
