@@ -1,4 +1,7 @@
 # addNewResidue.py
+
+https://github.com/kimjc95/addNewResidue.py
+
 This code adds custom-made amino acids to the GROMACS forcefield directory. 
 
 Currently supporting AMBER and CHARMM forcefields.
