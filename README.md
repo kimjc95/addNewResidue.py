@@ -1,4 +1,5 @@
-# addNewResidue.py
+addNewResidue.py
+================
 
 https://github.com/kimjc95/addNewResidue.py
 
@@ -17,15 +18,14 @@ When you supply the .mol2 file of your amino acid with N-acetyl cap and C-methyl
 4. add new parameters to the aminoacids.rtp, aminoacids.hdb, and atomtypes.atp files
 5. create newffbonded.itp, newffnonbonded.itp files if there is any new parameter to add to ffbonded.itp and ffnonbonded.itp files
 
-*WARNING: This code only works for non-terminal residues! Also, it simply add/subtracts charge change resulting from removing ACE/NME caps.
-        
- So the resulting atomic partial charges may not be accurate!
-        
- For the accurate parameterization, use other methods such as quantum mechanical ones.
+>WARNING: This code only works for non-terminal residues!    
+>Also, it simply add/subtracts charge change resulting from removing ACE/NME caps.    
+>So the resulting atomic partial charges may not be accurate!    
+>For the accurate parameterization, use other methods such as quantum mechanical ones.
 
 Guide : 
 
-## 1. Modify / Create your residue in the protein .pdb file using structure viewers such as PyMOL.
+### 1. Modify / Create your residue in the protein .pdb file using structure viewers such as PyMOL.
 
 Name the heavy atoms in your custom-made residue.
 
@@ -35,7 +35,9 @@ You do not have to add hydrogen atoms.
 
 Then save your .pdb structure with custom residue (without hydrogens).
 
-## 2. Save your residue's structure as MOL2 format.
+*****
+
+### 2. Save your residue's structure as MOL2 format.
 
 For simplicity, remove all residues other than i-1, i, i+1 th ones from the .pdb file you made in step 1.
 
@@ -49,7 +51,9 @@ You may now add hydrogens according to the pH. You don't have to name them, sinc
 
 Then save as the .mol2 file.
 
-## 3. Optimize your structure using simple molecular mechanics methods.
+*****
+
+### 3. Optimize your structure using simple molecular mechanics methods.
 
 You may use external programs such as Chem3D or Avogadro.
 
@@ -57,9 +61,11 @@ or you may use the optimize plugin from PyMOL (https://pymolwiki.org/index.php/O
 
 Save the energy minimized structure as .mol2 file.
 
-## 4. Create parameters for your residue using appropriate tools!
+*****
 
-### For AMBER forcefield, use acpype to generate GAFF2 parameters for your residue.
+### 4. Create parameters for your residue using appropriate tools.
+
+##### For AMBER forcefield, use acpype to generate GAFF2 parameters for your residue.
 
 checkout (https://github.com/alanwilter/acpype)
 
@@ -67,7 +73,7 @@ To run the acpype, you have to unify residue names (change ACE and NME's name in
 
 But do not unify the residue indices! addNewResidue.py differentiates the ACE & NME caps from your residue by the residue index info in your .mol2 file!
 
-### For CHARMM forcefield, use CHARMM-GUI to generate CGenFF parameters for your residue.
+##### For CHARMM forcefield, use CHARMM-GUI to generate CGenFF parameters for your residue.
 
 checkout (https://charmm-gui.org/)
 
@@ -75,7 +81,9 @@ Sometimes CHARMM-GUI may not properly print out the improper dihedral infos for 
 
 Place the resulting folder in your working directory.
 
-## 5. In the same directory, download the latest version of AMBER/CHARMM forcefield files from GROMACS website.
+*****
+
+### 5. In the same directory, download the latest version of AMBER/CHARMM forcefield files from GROMACS website.
 
 checkout (https://www.gromacs.org/Downloads/User_contributions/Force_fields)
 
@@ -91,7 +99,9 @@ into
 
 to avoid errors you will face when running the simulation of systems containing HID residues.
 
-## 6. Pass your .mol2 file and acpype/charmm-gui folder through the addNewResidue.py code.
+*****
+
+### 6. Pass your .mol2 file and acpype/charmm-gui folder through the addNewResidue.py code.
 
 for AMBER forcefield:
 
@@ -111,9 +121,13 @@ In case where there is no new bond / nonbonded interaction parameters to add, th
 
 If everything seems fine, change their names into ffbonded.itp and ffnonbonded.itp.
 
-## 7. Add your residue's name to the /gromacs/share/gromacs/top/residuetypes.dat, and set the type as Protein.
+*****
 
-## 8. Process your .pdb file from step 1 through gmx pdb2gmx.
+### 7. Add your residue's name to the /gromacs/share/gromacs/top/residuetypes.dat, and set the type as Protein.
+
+*****
+
+### 8. Process your .pdb file from step 1 through gmx pdb2gmx.
 
 Enjoy simulation!
  
