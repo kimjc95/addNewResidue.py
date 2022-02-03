@@ -69,15 +69,15 @@ Save the energy minimized structure as .mol2 file.
 
 ##### For AMBER forcefield, use acpype to generate GAFF2 parameters for your residue.
 
-checkout [acpype github](https://github.com/alanwilter/acpype)
+checkout [acpype github](https://github.com/alanwilter/acpype).
 
 To run the acpype, you have to unify residue names (change ACE and NME's name into your residue's) in your input .mol2 file.
 
-But do not unify the residue indices! addNewResidue.py differentiates the ACE & NME caps from your residue by the residue index info in your .mol2 file!
+But do not unify the residue indices!    addNewResidue.py differentiates the ACE & NME caps from your residue by the residue index info in your .mol2 file!
 
 ##### For CHARMM forcefield, use CHARMM-GUI to generate CGenFF parameters for your residue.
 
-checkout [CHARMM-GUI website](https://charmm-gui.org/)
+checkout [CHARMM-GUI website](https://charmm-gui.org/).
 
 Sometimes CHARMM-GUI may not properly print out the improper dihedral infos for phenyl rings in your residue, so be aware of that!
 
