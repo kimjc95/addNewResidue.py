@@ -12,7 +12,7 @@ def _read_args(): # reading input arguments
 
 	parser = argparse.ArgumentParser(description='Adds new residue info to the given forcefield directory.')
 	parser.add_argument('-m', '--mol2', nargs=1, metavar='mol2_FILE', help='original .mol2 file')
-	parser.add_argument('-f', '--ff', nargs=1, metavar='ForceField_DIR', help='forcefield directory to edit. It should be in the same directory as this python file.')
+	parser.add_argument('-f', '--ff', nargs=1, metavar='ForceField_DIR', help='forcefield directory to edit. It should be in the same directory with this python file.')
 	parser.add_argument('-n', '--name', nargs='?', metavar='residue_name', help='name of the new residue. If not supplied, the name of .mol2 file will be used.')
 	group = parser.add_mutually_exclusive_group()
 	group.add_argument('-a', '--acpype', metavar='acpype_DIR', help='name of the residue.acpype directory. It should be located in the same directory.')
@@ -854,7 +854,7 @@ def _hydrogen_sorter(atoms, bonds, hydrogens, amber_flag): # group hydrogens and
 					elif atom['type'] in group_5:
 						grp = 5
 					else:
-						sys.exit("Error!")
+						sys.exit("Error in hydrogen atom subtyping!")
 				elif mult == 2:
 					if atom['type'] in group_3:
 						grp = 3
@@ -862,9 +862,15 @@ def _hydrogen_sorter(atoms, bonds, hydrogens, amber_flag): # group hydrogens and
 						grp = 4
 					elif atom['type'] in group_6:
 						grp = 6
+					else:
+						sys.exit("Error in hydrogen atom subtyping!")
 				elif mult == 3:
 					if atom['type'] in group_4:
 						grp = 4
+					else:
+						sys.exit("Error in hydrogen atom subtyping!")
+				else:
+					sys.exit("Error: Hydrogen multiplicity larger than 3")
 
 			else:
 				H = hydrogens[atom['index']][0]
@@ -888,6 +894,8 @@ def _hydrogen_sorter(atoms, bonds, hydrogens, amber_flag): # group hydrogens and
 							grp = 8
 						elif atom2['type'] in group9:
 							grp = 9
+						else:
+							sys.exit("Error in hydrogen atom subtyping!")
 			
 			atomA = ''
 			atomB = ''
