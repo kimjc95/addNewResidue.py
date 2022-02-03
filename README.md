@@ -69,7 +69,7 @@ Save the energy minimized structure as .mol2 file.
 
 ##### For AMBER forcefield, use acpype to generate GAFF2 parameters for your residue.
 
-checkout [acpype website](https://github.com/alanwilter/acpype)
+checkout [acpype github](https://github.com/alanwilter/acpype)
 
 To run the acpype, you have to unify residue names (change ACE and NME's name into your residue's) in your input .mol2 file.
 
